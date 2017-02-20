@@ -21,11 +21,6 @@ module.exports = function(apiDetails) {
     return {
         generateOptions: function(reqObj) {
 
-            if (!['alerts', 'customers', 'devices'].includes(reqObj.resource.split('/')[0])) {
-                return 'Invalid Resource';
-            }
-
-            reqObj.resource = apiDetails.ver + reqObj.resource;
             reqObj.date = new Date().toUTCString();
 
             var sendString = buildSendString(reqObj.method, reqObj.contentMd5 || null, reqObj.contentType || null, reqObj.date, reqObj.resource);
