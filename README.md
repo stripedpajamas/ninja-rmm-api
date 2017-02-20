@@ -24,7 +24,7 @@ var ninjaReq = {
     contentMd5: null,
     contentType: null,
     date: null,
-    resource: 'alerts'
+    resource: '/v1/alerts'
 };
 
 request(ninjaConnection.generateOptions(ninjaReq), function(err, response, data) {
