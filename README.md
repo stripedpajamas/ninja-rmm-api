@@ -16,7 +16,7 @@ var NinjaAPI = {
     host: 'http://api.ninjarmm.com',
 };
 
-var ninjaConnection = require('./lib/ninjaAPI')(NinjaAPI);
+var ninjaConnection = require('ninja-rmm-api')(NinjaAPI);
 var request = require('request');
 
 var ninjaReq = {
