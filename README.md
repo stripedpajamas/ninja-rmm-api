@@ -14,7 +14,6 @@ var NinjaAPI = {
     accessKeyID: 'V4130TSG3KNLJEXAMPLE',
     secret: 'tk4361ej9vt74qei4ecmt22div3sq7ubvEXAMPLE',
     host: 'http://api.ninjarmm.com',
-    ver: '/v1/',
 };
 
 var ninjaConnection = require('./lib/ninjaAPI')(NinjaAPI);
