@@ -17,7 +17,7 @@ Pass in the API details as an object with at least:
 The accessKeyID and secret are provided from the Ninja interface (see documentation).
 
 When generating options for request, pass in an object with at least:
-* method (RESTful API compatible HTTP methods)
+* method (e.g. GET/PUT/POST/DELETE)
 * resource (e.g. /v1/alerts)
 
 The generateOptions method also supports passing in:
@@ -31,16 +31,16 @@ These are optional. The module will take care of the date property automatically
 ## Example
 
 ```js
-var NinjaAPI = {
+const NinjaAPI = {
     accessKeyID: 'TF4STGMDR4H7AEXAMPLE',
     secret: 'eh14c4ngchhu6283he03j6o7ar2fcuca0example',
     host: 'http://api.ninjarmm.com',
 };
 
-var ninjaConnection = require('ninja-rmm-api')(NinjaAPI);
-var request = require('request');
+const ninjaConnection = require('ninja-rmm-api')(NinjaAPI);
+const request = require('request');
 
-var ninjaReq = {
+const ninjaReq = {
     method: 'GET',
     resource: '/v1/alerts'
 };
