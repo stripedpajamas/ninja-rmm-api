@@ -46,7 +46,7 @@ describe('NinjaRMM API', function() {
             })).to.throw(Error);
         });
         it('should only accept RESTful methods', function() {
-            ['GET', 'DELETE', 'POST', 'PUSH'].forEach(method =>
+            ['GET', 'DELETE', 'POST', 'PUT'].forEach(method =>
                 expect(ninjaConnection(apiDetails).generateOptions.bind(ninjaConnection, {
                     method: method,
                     resource: 'dummyResource'

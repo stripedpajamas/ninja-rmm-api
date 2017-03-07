@@ -26,11 +26,11 @@ module.exports = function(apiDetails) {
         generateOptions: function(req) {
             if (!req || typeof req !== 'object' || ! (req.hasOwnProperty('method') && req.hasOwnProperty('resource'))) {
                 throw new Error('Invalid request. method and resource are required.');
-            } else if (!['GET', 'DELETE', 'POST', 'PUSH'].includes(req.method)) {
+            } else if (!['GET', 'DELETE', 'POST', 'PUT'].includes(req.method.toUpperCase())) {
                 throw new Error('Invalid method specified. Only GET, DELETE, POST, and PUSH are allowed.')
             }
             let reqObj = {
-                method: req.method,
+                method: req.method.toUpperCase(),
                 contentMd5: req.contentMd5 || '',
                 contentType: req.contentType || '',
                 date: req.date || new Date().toUTCString(),
