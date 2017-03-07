@@ -27,7 +27,7 @@ module.exports = function(apiDetails) {
             if (!req || typeof req !== 'object' || ! (req.hasOwnProperty('method') && req.hasOwnProperty('resource'))) {
                 throw new Error('Invalid request. method and resource are required.');
             } else if (!['GET', 'DELETE', 'POST', 'PUT'].includes(req.method.toUpperCase())) {
-                throw new Error('Invalid method specified. Only GET, DELETE, POST, and PUSH are allowed.')
+                throw new Error('Invalid method specified. Only GET, DELETE, POST, and PUT are allowed.')
             }
             let reqObj = {
                 method: req.method.toUpperCase(),
