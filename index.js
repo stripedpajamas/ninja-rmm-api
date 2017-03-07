@@ -6,6 +6,11 @@ const url = require('url');
 
 
 module.exports = function(apiDetails) {
+    if (!apiDetails || ! (apiDetails.hasOwnProperty('accessKeyID')
+                        && apiDetails.hasOwnProperty('secret')
+                        && apiDetails.hasOwnProperty('host'))) {
+        throw new Error('Invalid apiDetails provided. accessKeyID, secret, and host are required.');
+    }
 
     function buildSendString(method, contentMd5, contentType, date, resource) {
         let sendString = '';
@@ -18,9 +23,19 @@ module.exports = function(apiDetails) {
     }
 
     return {
-        generateOptions: function(reqObj) {
-
-            reqObj.date = new Date().toUTCString();
+        generateOptions: function(req) {
+            if (!req || typeof req !== 'object' || ! (req.hasOwnProperty('method') && req.hasOwnProperty('resource'))) {
+                throw new Error('Invalid request. method and resource are required.');
+            } else if (!['GET', 'DELETE', 'POST', 'PUSH'].includes(req.method)) {
+                throw new Error('Invalid method specified. Only GET, DELETE, POST, and PUSH are allowed.')
+            }
+            let reqObj = {
+                method: req.method,
+                contentMd5: req.contentMd5 || '',
+                contentType: req.contentType || '',
+                date: req.date || new Date().toUTCString(),
+                resource: req.resource
+            };
 
             let sendString = buildSendString(reqObj.method, reqObj.contentMd5 || null, reqObj.contentType || null, reqObj.date, reqObj.resource);
             let signature = crypto.createHmac('sha1', apiDetails.secret).update(sendString).digest('base64');
