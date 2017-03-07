@@ -1,6 +1,6 @@
 {
   "name": "ninja-rmm-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "connect Node to NinjaRMM",
   "main": "index.js",
   "scripts": {
