@@ -15,8 +15,8 @@ module.exports = function(apiDetails) {
     function buildSendString(method, contentMd5, contentType, date, resource) {
         let sendString = '';
         sendString += method + '\n';
-        sendString += contentMd5 ? contentMd5 : '\n';
-        sendString += contentType ? contentType : '\n';
+        sendString += contentMd5 || '\n';
+        sendString += contentType || '\n';
         sendString += date + '\n';
         sendString += resource;
         return Buffer.from(sendString).toString('base64');
