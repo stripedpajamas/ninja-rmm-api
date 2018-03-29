@@ -3,7 +3,7 @@ a node wrapper for the NinjaRMM API
 
 * [NinjaRMM](http://ninjarmm.com)
 
-* [Ninja API documentation](https://ninjaresources.s3.amazonaws.com/PublicApi/0.1.2/NinjaRMM%20Public%20API%20v0.1.2.pdf)
+* [Ninja API documentation](https://ninjarmm.com/dev-api/)
 
 ninja-rmm-api exposes a **generateOptions** method that outputs an options Object to be used with [request](https://github.com/request/request).
 
