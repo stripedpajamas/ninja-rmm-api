@@ -2,9 +2,10 @@
   "name": "ninja-rmm-api",
   "version": "1.0.3",
   "description": "connect Node to NinjaRMM",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "mocha test"
+    "build": "babel src -d lib",
+    "test": "standard && mocha test"
   },
   "repository": {
     "type": "git",
@@ -14,14 +15,22 @@
     "ninjarmm",
     "api"
   ],
-  "author": "peter squicciarini",
+  "author": "Peter Squicciarini <stripedpajamas273@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/stripedpajamas/ninja-rmm-api/issues"
   },
   "homepage": "https://github.com/stripedpajamas/ninja-rmm-api#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "chai": "^3.5.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "standard": "^11.0.1"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
   }
 }

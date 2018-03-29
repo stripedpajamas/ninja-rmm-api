@@ -1,5 +1,7 @@
-# ninja-rmm-api
+# ninja-rmm-api :: UNMAINTAINED
 a node wrapper for the NinjaRMM API
+
+*this package is not being maintained at all. if you find it useful, feel free to take over*
 
 * [NinjaRMM](http://ninjarmm.com)
 
@@ -31,23 +33,21 @@ These are optional. The module will take care of the date property automatically
 ## Example
 
 ```js
-const NinjaAPI = {
-    accessKeyID: 'TF4STGMDR4H7AEXAMPLE',
-    secret: 'eh14c4ngchhu6283he03j6o7ar2fcuca0example',
-    host: 'http://api.ninjarmm.com',
-};
+const NinjaClient = require('ninja-rmm-api')
+const request = require('request')
 
-const ninjaConnection = require('ninja-rmm-api')(NinjaAPI);
-const request = require('request');
+const ninjaClient = new NinjaClient({
+  accessKeyID: 'TF4STGMDR4H7AEXAMPLE',
+  secret: 'eh14c4ngchhu6283he03j6o7ar2fcuca0example',
+  host: 'http://api.ninjarmm.com',
+})
 
-const ninjaReq = {
-    method: 'GET',
-    resource: '/v1/alerts'
-};
+const ninjaReq = ninjaClient.generateOptions({
+  method: 'GET',
+  resource: '/v1/alerts'
+})
 
-request(ninjaConnection.generateOptions(ninjaReq), function(err, response, data) {
-
+request(ninjaReq, (err, response, data) => {
   // ...
-  
-});
+})
 ```
