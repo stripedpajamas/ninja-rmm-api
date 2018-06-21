@@ -4,6 +4,7 @@
   "description": "connect Node to NinjaRMM",
   "main": "lib/index.js",
   "scripts": {
+    "prepublish": "npm run build",
     "build": "babel src -d lib",
     "test": "standard && mocha test"
   },

@@ -1,6 +1,6 @@
 /* global it describe */
 const expect = require('chai').expect
-const NinjaClient = require('../src')
+const NinjaClient = require('../lib')
 
 const apiDetails = {
   accessKeyId: 'TF4STGMDR4H7AEXAMPLE', // the example key & secret provided in the Ninja docs
